@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/styles/main.css}" rel="stylesheet" />
+    <title>CMPT 213 Online Hangman Game</title>
+</head>
+<body style="background-image: url(https://i0.wp.com/saintpolicesystems.com/wp-content/uploads/2018/06/blue-light-backgrounds-background-opera-image-graphics-community-speeddials.jpg?w=1440);">
+
+<div th:switch="${game.incorrectGuesses}">
+    <p th:case="0"><img align="left" class="hangman" th:src="@{/images/h0.jpg}" style="border:5px double black;"/></p>
+    <p th:case="1"><img align="left" class="hangman" th:src="@{/images/h1.jpg}" style="border:5px double black;"/></p>
+    <p th:case="2"><img align="left" class="hangman" th:src="@{/images/h2.jpg}" style="border:5px double black;"/></p>
+    <p th:case="3"><img align="left" class="hangman" th:src="@{/images/h3.jpg}" style="border:5px double black;"/></p>
+    <p th:case="4"><img align="left" class="hangman" th:src="@{/images/h4.jpg}" style="border:5px double black;"/></p>
+    <p th:case="5"><img align="left" class="hangman" th:src="@{/images/h5.jpg}" style="border:5px double black;"/></p>
+    <p th:case="6"><img align="left" class="hangman" th:src="@{/images/h6.jpg}" style="border:5px double black;"/></p>
+    <p th:case="7"><img align="left" class="hangman" th:src="@{/images/h7.jpg}" style="border:5px double black;"/></p>
+    <p th:case="8"><img align="left" class="hangman" th:src="@{/images/h8.jpg}" style="border:5px double black;"/></p>
+</div>
+<center>
+    <p style="text-align: center;">Game Information</p>
+    <table style="height: 144px;" width="772">
+        <tbody>
+        <tr>
+            <td style="width: 378px;">GAME ID</td>
+            <td style="width: 378px;">&nbsp; <th:block th:text="${game.gameID}">message</th:block></td>
+        </tr>
+        <tr>
+            <td style="width: 378px;">STATUS OF THE GAME</td>
+            <td style="width: 378px;">&nbsp;<th:block th:text="${game.status}">message</th:block></td>
+        </tr>
+        <tr>
+            <td style="width: 378px;">UNIQUE LETTER GUESSES ATTEMPTED</td>
+            <td style="width: 378px;">&nbsp;<th:block th:text="${game.attemptedLetters}">message</th:block></td>
+        </tr>
+        <tr>
+            <td style="width: 378px;">NUMBER OF TOTAL GUESSES</td>
+            <td style="width: 378px;">&nbsp;<th:block th:text="${game.guesses}">message</th:block></td>
+        </tr>
+        <tr>
+            <td style="width: 378px;">NUMBER OF CORRECT GUESSES</td>
+            <td style="width: 378px;">&nbsp;<th:block th:text="${game.correctGuesses}">message</th:block>
+        </tr>
+        <tr>
+            <td style="width: 378px;">NUMBER OF INCORRECT GUESSES</td>
+            <td style="width: 378px;">&nbsp;<th:block th:text="${game.incorrectGuesses}">message</th:block>
+        </tr>
+        <tr>
+            <td style="width: 378px;">REMAINING CHANCES OF GUESSES LEFT</td>
+            <td style="width: 378px;">&nbsp;<th:block th:text="${game.getTriesLeft()}">message</th:block>
+        </tr>
+        </tbody>
+    </table>
+    <h1><br><th:block th:text="${game.currentWord}">message</th:block></h1>
+    <form action="#" th:action="@{/game}" method="post" th:object="${game}">
+        <label>Please enter a letter: </label>
+        <input pattern="[A-Za-z]" type="text" required="required" autocomplete="off" maxlength="1" th:field="*{inputLetter}" /><br/>
+        <p hidden><input type="text" th:field="*{completeWord}" /><br/></p>
+        <p hidden><input type="text" th:field="*{currentWord}" /><br/></p>
+        <p hidden><input type="text" th:field="*{guesses}" /><br/></p>
+        <p hidden><input type="text" th:field="*{correctGuesses}" /><br/></p>
+        <p hidden><input type="text" th:field="*{incorrectGuesses}" /><br/></p>
+        <p hidden><input type="text" th:field="*{gameID}" /><br/></p>
+        <p hidden><input type="text" th:field="*{attemptedLetters}" /><br/></p>
+
+        <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <input type="submit" value="Submit Letter" /> </p>
+    </form>
+    <br><br><br><a href="/welcome"><p> <input type="submit" value="Go back to Welcome Menu" /> </p></a>
+    <footer><small>&copy; Mark Angelo Monroy 2020</footer>
+</center>
+</body>
+</html>

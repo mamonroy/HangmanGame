@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/styles/main.css}" rel="stylesheet" />
+    <title>CMPT 213 Online Hangman Game</title>
+</head>
+<body style="background-image: url(https://i0.wp.com/saintpolicesystems.com/wp-content/uploads/2018/06/blue-light-backgrounds-background-opera-image-graphics-community-speeddials.jpg?w=1440);">
+
+<img class="welcomeimg" src="https://www.firstcomicsnews.com/wp-content/uploads/2016/09/Hangman-Logo-600x253.png"/>
+
+<img class="hangmanimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Hangman-5.svg/1200px-Hangman-5.svg.png" />
+<br><br><br><br><h3>Rules of the Game</h3>
+<p>Hello! Welcome to the Hangman Game. The mechanics of the game are as follows: </p>
+<ul>
+    <li> A random word will be chosen for you to guess. Your goal is to guess the word by inputting a letter </li>
+    <li> If you have guessed a letter which is part of the word, that letter of the word becomes visible </li>
+    <li> If you have guessed a letter which is NOT part of the word, you will be deducted by the number of remaining guess chances </li>
+    <li> You have at MOST 7 chances if you enter a wrong letter </li>
+    <li> If you run out of chances, you LOSE the game </li>
+    <li> If guess the word without running out of chances, you WIN the game </li>
+</ul>
+
+<form action="#" th:action="@{/game}">
+    <p> <input type="submit" value="Play the Game" /> </p>
+</form>
+
+<br><h5>Creator and Student Information</h5>
+<ul>
+    <li>Mark Angelo Monroy</li>
+    <li>301326143</li>
+    <li>mamonroy@sfu.ca</li>
+</ul>
+
+<footer><small>&copy; Mark Angelo Monroy 2020</footer>
+</body>
+</html>

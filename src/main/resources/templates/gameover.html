@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/styles/main.css}" rel="stylesheet" />
+    <title>CMPT 213 Online Hangman Game</title>
+</head>
+<body style="background-image: url(https://i0.wp.com/saintpolicesystems.com/wp-content/uploads/2018/06/blue-light-backgrounds-background-opera-image-graphics-community-speeddials.jpg?w=1440);">
+
+
+
+<div th:switch="${game.incorrectGuesses}">
+    <p th:case="8">
+        <img align="left" class="hangman" th:src="@{/images/h8.jpg}" style="border:5px double black;"/>
+    <center><img src="https://media.giphy.com/media/eJ4j2VnYOZU8qJU3Py/giphy.gif" /></center>
+    <h1><p>The word was: <th:block th:text="${game.completeWord}">message</th:block></p></h1>
+    <p th:case="*">
+    <center><img src="https://media.giphy.com/media/ToMjGpyO2OVfPLpoxu8/giphy.gif" /></center>
+    </p>
+</div>
+
+<form action="#" th:action="@{/welcome}">
+    <center><p> <input type="submit" value="Play Again" /> </p></center>
+</form>
+<center><footer><small>&copy; Mark Angelo Monroy 2020</footer></center>
+</body>
+</html>

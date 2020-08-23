@@ -1,0 +1,30 @@
+html {
+    font-family: sans-serif;
+}
+
+.welcomeimg {
+    display: block;
+    margin: auto;
+    width: auto; /* you can use % */
+    height: auto;
+}
+
+.hangmanimg {
+   width: 400px;
+   height: auto;
+   float:right;
+}
+#background-image {
+    background-size:cover;
+}
+
+.hangman {
+    width: 400px;
+    height 200px;
+
+}
+
+h1 {
+    text-align: center;
+    font-size:60px;
+}
